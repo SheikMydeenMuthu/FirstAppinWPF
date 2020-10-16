@@ -1,0 +1,44 @@
+﻿<Window x:Class="FirstAppinWPF.Views.MainWindowPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstAppinWPF.Views"
+        xmlns:VM="clr-namespace:FirstAppinWPF.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindowPage" Height="450" Width="800">
+    <Window.DataContext>
+        <VM:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid VerticalAlignment="Center"
+          HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Username :"/>
+
+        <TextBox Grid.Column="1" 
+                 Width="150"
+                 Text="{Binding UserName}"/>
+
+        <Label Grid.Row="1"
+               Content="Password :"/>
+
+        <TextBox Grid.Row="1"
+                 Grid.Column="1" 
+                 Width="150"
+                 Text="{Binding Password}"/>
+
+        <Button  Grid.Row="2"
+                 Grid.ColumnSpan="2"
+                 Content="Submit"
+                 Command="{Binding Path=SubmitCommand}"/>
+
+    </Grid>
+</Window>
