@@ -26,6 +26,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -44,11 +45,29 @@
                  Grid.Column="1" 
                  Width="150"
                  Text="{Binding Password}"/>
+        
+        <CheckBox Grid.Row="2"
+          x:Name="PolicyAccept"/>
+        <Label x:Name="lblAccept" 
+               Content="Accept Terms and Conditions"
+               Grid.Column="1"
+               Grid.Row="2"
+               HorizontalAlignment="Right"/>
 
-        <Button  Grid.Row="2"
+        <Button  Grid.Row="3"
                  Grid.ColumnSpan="2"
                  Content="Submit"
-                 Command="{Binding Path=SubmitCommand}"/>
+                 Command="{Binding Path=SubmitCommand}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=PolicyAccept, Path=IsChecked}" Value="False">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Window>
