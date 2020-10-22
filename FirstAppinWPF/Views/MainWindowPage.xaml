@@ -49,7 +49,7 @@
         <CheckBox Grid.Row="2"
           x:Name="PolicyAccept"/>
         <Label x:Name="lblAccept" 
-               Content="Accept Terms and Conditions"
+               Content="Click checkbox and click to submit for next page"
                Grid.Column="1"
                Grid.Row="2"
                HorizontalAlignment="Right"/>

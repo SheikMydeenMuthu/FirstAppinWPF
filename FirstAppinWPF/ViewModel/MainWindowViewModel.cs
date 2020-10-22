@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FirstAppinWPF.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.MobileControls;
@@ -15,6 +17,7 @@ namespace FirstAppinWPF.ViewModel
         {
 
         }
+        #region Properties
         private string _userName;
 
         public string UserName
@@ -44,8 +47,13 @@ namespace FirstAppinWPF.ViewModel
                 _submitCommand = value;
             }
         }
+        #endregion
+
+        #region Methods
+        
+        #endregion
     }
-    class Updater : ICommand
+    public class Updater : ICommand
     {
         #region ICommand Members  
 
@@ -61,7 +69,8 @@ namespace FirstAppinWPF.ViewModel
 
         public void Execute(object parameter)
         {
-            //Your Code  
+            EmployeeRecords employeeRecords = new EmployeeRecords();
+            employeeRecords.Show();
         }
         #endregion
     }
